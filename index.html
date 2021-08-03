@@ -1,18 +1,23 @@
-<a href="http://github.com/modskin/modskin.github.io/blob/main/LOLPRO%2010.20.1.zip?raw=true">download LOLPRO 2010.21.zip</a><br>
-<hr/>
-<a href="http://modskinpro.com">http://modskinpro.com</a>
-<hr>
-<input name="ver" value="" onchange='create_link()'> <br/> => <a href='#' id='link'></a>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-  
-  function create_link(){
-    var ver = $('[name="ver"]').val();
-   var link = `http://s4.modskinlolvn.com/MODSKIN_${ver}.zip`; 
-    
-    console.log(link);
-    $('#link').text(link);
-    $('#link').attr('href',link);
-  }
-  
-  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/vue@3.1.5/dist/vue.global.js"></script>
+
+
+
+
+<div id="app" style="text-align: center;">
+  <h2>DOWNLOAD MODSKIN</h2>
+  <h4>{{ message }}</h4>
+  <ul style="list-style-type: none;">
+    <li>Trang download chính: <a href="http://modskinpro.com/">http://modskinpro.com/</a></li>
+    <li>
+      <span>link download file:</span>
+      <span><a :href="link_download_app" download> {{ link_download_app }} </a></span>
+    </li>
+  </ul>
+</div>
+
+
+
+<script src="app.js"></script>
