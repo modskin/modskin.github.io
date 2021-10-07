@@ -57,7 +57,7 @@ const app = {
         get_version_LOL2: function () {
 
             try {
-                var url = `http://117.0.34.240:7879/bypass?url=http://modskinpro.com/p/tai-phan-mem-mod-skin-lol-pro-2020-chn`;
+                var url = `https://bypasscors.ddns.net/bypass?url=http://modskinpro.com/p/tai-phan-mem-mod-skin-lol-pro-2020-chn`;
                 fetch(url)
                     .then(d => d.text())
                     .then(html => {
