@@ -5,15 +5,20 @@
 
 
 
-
 <div id="app" style="text-align: center;">
   <h2>DOWNLOAD MODSKIN</h2>
-  <h4>{{ message }}</h4>
   <ul style="list-style-type: none;">
     <li>Trang download chính: <a href="http://modskinpro.com/">http://modskinpro.com/</a></li>
     <li>
-      <span>link download file:</span>
+      <hr>
+      <h4>{{ message }}</h4>
+      <span>option 1: link download file:</span>
       <span><a :href="link_download_app" download> {{ link_download_app }} </a></span>
+    </li>
+    <li>
+      <hr>
+      <span>option 2: link download file:</span>
+      <span><a :href="link_download_app2" download> {{ link_download_app2 }} </a></span>
     </li>
   </ul>
 </div>

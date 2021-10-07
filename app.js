@@ -3,16 +3,20 @@ const app = {
         return {
             message: 'Hello Vue!',
             link_download_app: '#',
+            link_download_app2: '#',
             version: '---',
             isLoadingVersion: true,
+            isSuccess: false,
         }
     },
     mounted() {
         console.log('app created');
         this.get_version_LOL();
+        this.get_version_LOL2();
     },
     methods: {
         get_version_LOL: function () {
+
             console.log("get_version_LOL");
             this.isLoadingVersion = true;
 
@@ -38,7 +42,10 @@ const app = {
                     this.link_download_app = link_download_app;
                     this.message = `success. LOL version ${version}`;
 
-                    window.location.replace(link_download_app);
+                    if (!this.isSuccess) {
+                        window.location.replace(this.link_download_app);
+                    }
+                    this.isSuccess = true;
                 });
             } catch {
                 this.message = "error...";
@@ -46,6 +53,35 @@ const app = {
 
             this.isLoadingVersion = false;
         },
+
+        get_version_LOL2: function () {
+
+            try {
+                var url = `http://117.0.34.240:7879/bypass?url=http://modskinpro.com/p/tai-phan-mem-mod-skin-lol-pro-2020-chn`;
+                fetch(url)
+                    .then(d => d.text())
+                    .then(html => {
+                        var links = html.match(/link2 =\s*"(.+)"/);
+                        if (links.length > 1) {
+                            this.link_download_app2 = links[1];
+
+                            if (!this.isSuccess) {
+                                window.location.replace(this.link_download_app2);
+                            }
+                            this.isSuccess = true;
+                        } else {
+                            this.link_download_app2 = links.join(',');
+                        }
+                    })
+                    .catch(e => {
+                        debugger
+                        alert('error');
+                    });
+            }
+            catch {
+                debugger;
+            }
+        }
     }
 }
 
